@@ -6,6 +6,19 @@ main {
     width: 100%;
     height: 100%;
 }
+
+.desc {
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    color: #fff;
+    font-size: 36px;
+    line-height: 35px;
+    font-family: inherit;
+    font-weight: 300;
+    text-align: left;
+}
+
 .swiper-slide {
     text-align: center;
     font-size: 18px;
@@ -17,16 +30,6 @@ main {
     align-items: center;
     position: relative;
 }
-.desc {
-    position: absolute;
-    bottom: 50px;
-    left: 20px;
-    color: #fff;
-    font-size: 36px;
-    line-height: 35px;
-    font-family: inherit;
-    font-weight: 300;
-}
 
 .swiper-slide img {
     display: block;
@@ -35,13 +38,4 @@ main {
     object-fit: cover;
 }
 
-/* 下面我们会解释这些 class 是做什么的 */
-.v-enter-active,
-.v-leave-active {
-    transition: opacity 0.5s ease;
-}
 
-.v-enter-from,
-.v-leave-to {
-    opacity: 0;
-}
