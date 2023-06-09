@@ -39,3 +39,22 @@ main {
 }
 
 
+.block {
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 0px 0px 0px 0px;
+    // position: relative;
+    min-height: 1px;
+
+    h2 {
+        padding: 60px 0;
+    }
+    h2>p{
+        line-height: 26px;
+        text-align: center;
+        font-weight: 400;
+        font-family: inherit;
+        font-size: 22px;
+    }
+}

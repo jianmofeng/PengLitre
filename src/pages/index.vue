@@ -27,6 +27,13 @@
         </Transition>
       </swiper-slide>
     </Swiper>
+    <div class="block">
+      <h2>
+        <p>设计的历史</p>
+        <p>是澎升的历史</p>
+      </h2>
+      <HisorySwiper />
+    </div>
   </main>
 </template>
 <style lang="scss" src="@/assets/styles/index.scss"></style>
@@ -50,6 +57,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
+
+import HisorySwiper from "@/components/historySwiper.vue"
 
 import img1 from "@/assets/images/MODERN-LUXURY-DESIGN-KITCHENS.webp";
 import img2 from "@/assets/images/MODERN-LUXURY-DESIGN-BATHROOS.webp";
