@@ -27,28 +27,35 @@
         </Transition>
       </swiper-slide>
     </Swiper>
-    <div class="block">
+    <div class="block box-shadow">
       <h2>
         <p>设计的历史</p>
         <p>是澎升的历史</p>
       </h2>
       <HisorySwiper />
     </div>
+    <div class="block box-shadow">
+      <h2>
+        <p>产品</p>
+      </h2>
+      <div class="list">
+        <div class="item" v-for="(item, i) in list" :key="i">
+          <div class="item-img">
+            <img :src="item.url">
+          </div>
+          <div class="item-text">
+            {{ item.text }}
+          </div>
+        </div>
+      </div>
+
+      <div @click="product" class="more">
+        发现所有产品
+      </div>
+    </div>
   </main>
 </template>
-<style lang="scss" src="@/assets/styles/index.scss"></style>
-<style lang="scss" scoped>
-/* 下面我们会解释这些 class 是做什么的 */
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
 
-// .v-enter-from,
-// .v-leave-to {
-//   opacity: 0;
-// }
-</style>
 <script setup lang="tsx">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import type { Swiper as SwiperType } from "swiper";
@@ -93,6 +100,16 @@ const data = [
   },
 ];
 
+const list = [{
+  url: img1,
+  text: '产品1'
+},
+{
+  url: img1,
+  text: '产品2'
+}]
+
+
 const onSlideChange = (e: SwiperType) => {};
 
 const next = (e: SwiperType) => {
@@ -103,7 +120,9 @@ const router = useRouter();
 const toList = () => {
   router.push("/user-admin/111");
 };
-
+const product = () => {
+  router.push('/list')
+}
 let swiper:any;
 const onSwiper = (s: SwiperType) => {
   swiper = s;
@@ -116,3 +135,118 @@ const onSwiperMouseLeave = () => {
   swiper.autoplay.start();
 };
 </script>
+
+<style lang="scss" scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+main {
+    width: 100%;
+    height: 100%;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.desc {
+    position: absolute;
+    bottom: 50px;
+    left: 20px;
+    color: #fff;
+    font-size: 36px;
+    line-height: 35px;
+    font-family: inherit;
+    font-weight: 300;
+    text-align: left;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.block {
+    margin: 0px 0px 0px 0px;
+    --e-column-margin-right: 0px;
+    --e-column-margin-left: 0px;
+    padding: 20px 0px;
+    min-height: 1px;
+
+    h2 {
+        padding: 60px 0;
+        margin: 0;
+    }
+    h2>p{
+        line-height: 26px;
+        text-align: center;
+        font-weight: 400;
+        font-family: inherit;
+        font-size: 22px;
+    }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: rgb(51, 51, 51);
+  .item {
+    cursor: pointer;
+    &-img {
+      height: 437px;
+      
+      img {
+        width: 100%;
+        height: 100%;
+          object-fit: cover;
+      }
+    }
+    &-text {
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+}
+.more {
+  width: 200px;
+  height: 40px;
+  border: 1px solid #999;
+  border-radius: 30px;
+  margin: 0 auto;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
+}
+.more:hover {
+  background: #000;
+  color: #fff;
+  transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
+}
+.box-shadow {
+  box-shadow: 0px 7px 7px -7px rgba(0, 0, 0, 0.12);
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="header"/>
   <h2 class="title">
-    <p>Living Room</p>
+    <p>客厅</p>
     <p>客厅的合理布置满足舒适性、空间性、功能性和平衡性：这一切都归功于 Python 能够识别、理解和加工材料以掌握其本质。</p>
   </h2>
   <div class="list">
@@ -13,7 +13,6 @@
         {{ item.text }}
       </div>
     </div>
-    <div class="item"></div>
   </div>
 </template>
 <style lang="scss" scoped>

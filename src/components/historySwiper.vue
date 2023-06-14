@@ -13,7 +13,7 @@
   >
     <swiper-slide v-for="(item, index) in data" :key="index">
       <img :src="item.url" :alt="item.alt" />
-        <div class="slide-text">{{ item.alt }}</div>
+      <div class="slide-text">{{ item.alt }}</div>
     </swiper-slide>
   </Swiper>
 </template>
@@ -38,13 +38,15 @@
 .mySwiper .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 556px;
   object-fit: cover;
 }
 .slide-text{
   position: absolute;
-  bottom: -30px;
+  bottom: 0;
   left: 5px;
+  font-size: 13px;
+  line-height: 20px;
 }
 </style>
 <script lang="ts">
