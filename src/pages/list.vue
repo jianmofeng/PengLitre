@@ -60,6 +60,13 @@ const list = [{
 {
   url: img1,
   text: 'xxxxxxxxx222'
+},{
+  url: img1,
+  text: 'xxxxxxxxxxxx'
+},
+{
+  url: img1,
+  text: 'xxxxxxxxx222'
 }]
 
 </script>
