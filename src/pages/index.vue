@@ -54,6 +54,7 @@
       </div>
     </div>
   </main>
+  <NuxtLayout name="footer" />
 </template>
 
 <script setup lang="tsx">
@@ -143,7 +144,7 @@ const onSwiperMouseLeave = () => {
 }
 main {
     width: 100%;
-    height: 100%;
+    // height: 100%;
 }
 .swiper {
     width: 100%;
