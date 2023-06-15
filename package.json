@@ -24,6 +24,8 @@
     "@vueuse/core": "^9.6.0",
     "@vueuse/nuxt": "^9.6.0",
     "pinia": "^2.0.26",
+    "postcss": "^8.4.24",
+    "postcss-pxtorem": "^6.0.0",
     "swiper": "^9.3.2"
   }
 }

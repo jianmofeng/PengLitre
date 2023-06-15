@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: 'icon', type: "image/png", href: '@/assets/images/icon/favicon.png' }],
-      title: "澎升装饰官网",
+      title: "Python Decordtion",
       charset: "utf-8",
       htmlAttrs: {
         lang: "zh-cn",
@@ -13,6 +13,16 @@ export default defineNuxtConfig({
     },
     // pageTransition: { name: 'page', mode: 'out-in' }
     layoutTransition: { name: 'layout', mode: 'out-in' }
+  },
+  postcss: {
+    plugins: {
+      'postcss-pxtorem': {
+        rootValue: 19,
+        propList: ['*'],
+        mediaQuery: false,
+        exclude: 'ignore',
+      },
+    }
   },
   modules: [
     // ...

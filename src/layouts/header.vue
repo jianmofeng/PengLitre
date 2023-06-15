@@ -3,7 +3,7 @@
     <div class="header-left">
       <div class="header-left-logo">
         <a @click="toHome" class="cursor-pointer">
-          <img src="https://www.boffi.com/wp-content/uploads/2023/03/BOFFI-LOGO.svg" alt="boffi Logo" class="logo__img logo__img--desktop">
+          <img :src="homeIcon" alt="Python Decordtion Logo" class="logo__img logo__img--desktop">
         </a>
       </div>
       <nav class="nav">
@@ -17,6 +17,8 @@
   </header>
 </template>
 <script setup>
+import homeIcon from "@/assets/images/icon/favicon.png"
+
 const router = useRouter()
 const product = () => {
   router.push('/list')
@@ -31,7 +33,7 @@ const toHome = () => {
 }
 .header {
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 5px 20px;
   box-shadow: 0px 7px 7px -7px rgba(0, 0, 0, 0.12);
   margin-bottom: 5px;
   position: fixed;
@@ -43,11 +45,18 @@ const toHome = () => {
 
   &-left {
     display: flex;
-    width: 500px;
+    width: 20.6rem;
 
     &-logo {
-      width: 90px;
+      width: 160px;
+      height: 36px;
       padding-top: 10px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
     .nav{
       display: flex;
@@ -63,9 +72,6 @@ const toHome = () => {
         &-item:hover {
           color: #b0b0b0;
         }
-        // &-item:active {
-        //   color: #336;
-        // }
       }
     }
   }

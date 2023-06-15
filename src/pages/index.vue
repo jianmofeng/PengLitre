@@ -144,7 +144,6 @@ const onSwiperMouseLeave = () => {
 }
 main {
     width: 100%;
-    // height: 100%;
 }
 .swiper {
     width: 100%;
@@ -205,7 +204,7 @@ main {
 
 .list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: auto auto;
   grid-template-rows: auto;
   grid-gap: 20px;
   padding: 20px;

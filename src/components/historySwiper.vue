@@ -1,10 +1,11 @@
 <template>
   <Swiper
+    ref="el"
     :auto="true"
     :loop="true"
     :modules="modules"
-    :slidesPerView="3"
-    :spaceBetween="30"
+    :slidesPerView="slidesPerView"
+    :spaceBetween="spaceBetween"
     :cssMode="true"
     class="mySwiper"
     @swiper="onSwiper"
@@ -59,6 +60,8 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useResizeObserver } from '@vueuse/core'
+
 
 import { Autoplay, Mousewheel,Pagination, Keyboard } from "swiper";
 
@@ -108,6 +111,8 @@ const data = [
 ];
 
 let swiper: any;
+const slidesPerView = ref(3);
+const spaceBetween = ref(30);
 const onSwiper = (s: SwiperType) => {
   swiper = s;
 };
@@ -118,4 +123,52 @@ const onSwiperMouseEnter = () => {
 const onSwiperMouseLeave = () => {
   swiper.autoplay.start();
 };
+function throttle(fn:any, ms:number){
+  let time: NodeJS.Timeout|null = null
+  return function(){
+    if(!time){
+      time = setTimeout(()=>{
+      	fn()
+        time = null
+      },ms)
+    }
+  }
+}
+function debounce(fn:any, ms:number){
+  let time: NodeJS.Timeout|null = null
+
+  return function () {
+    if (time) clearTimeout(time)
+		time = setTimeout(()=>{
+      fn()
+    }, ms)
+  }
+}
+const el = ref(null)
+function resizeCallback(width:number) {
+  // 移动端或视口小于500 轮播变成一个
+    if (width < 500) {
+      slidesPerView.value = 1
+      spaceBetween.value = 0
+      console.log(`(╯‵□′)╯︵┻━┻`, slidesPerView)
+      
+    }
+  }
+useResizeObserver(el, (entries) => {
+  const entry = entries[0]
+  // resizeCallback()
+  const { width } = entry.contentRect;
+  // debounce(() => {
+    if (width < 500) {
+      slidesPerView.value = 1
+      spaceBetween.value = 0
+      // console.log(`(╯‵□′)╯︵┻━┻`, slidesPerView)
+      
+    } else {
+      slidesPerView.value = 3
+      spaceBetween.value = 30
+    }
+  // }, 500)
+
+})
 </script>
